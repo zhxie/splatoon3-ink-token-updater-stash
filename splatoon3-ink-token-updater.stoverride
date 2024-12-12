@@ -1,0 +1,17 @@
+name: Splatoon3.ink Token Updater
+desc: Update token for Splatoon3.ink automatically
+
+http:
+  mitm:
+    - "api.lp1.av5ja.srv.nintendo.net"
+  script:
+    - match: ^https?:\/\/api\.lp1\.av5ja\.srv\.nintendo\.net\/api\/bullet_tokens
+      name: splatoon3-ink-token-updater
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  splatoon3-ink-token-updater:
+    url: https://raw.githubusercontent.com/zhxie/splatoon3-ink-token-updater-stash/master/update.js
+    interval: 86400
